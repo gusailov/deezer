@@ -27,13 +27,13 @@ function App() {
           setError(error);
         }
       );}
+  console.log(items);
   
     return (
     <div className="container">
       <Search searchName={searchName}></Search>
       <CurrentlyCard forecast={items} isLoaded={isLoaded} error={error} ></CurrentlyCard>
-      
-    </div>
+          </div>
   );
 }
 

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Search from "./Search"
 
 function Api() {
   const [error, setError] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-
-  
-
  
-  useEffect(() => {
+    useEffect(() => {
     
     fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=abba", {
 	"method": "GET",

@@ -7,7 +7,7 @@ function DailyCards(props) {
    
   if (forecast.error) {
     return <div>Помилка: {forecast.error.message}</div>;
-  } else if (!isLoaded) {
+  } else if (!isLoaded || forecast.length===0) {
     return <div>Завантаження...</div>;
   } else {
     return (

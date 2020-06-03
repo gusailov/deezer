@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 
-function Search () {
+function Search (props) {
 const [name , setName] = useState('')
 
+
+const handleSubmit = (evt) => {
+  evt.preventDefault();
+   props.searchName(name)
+   }
     return (
-        <div className="input-group mb-3">
-  <input type="text" className="form-control" placeholder="enter artist name" aria-label="enter artist name" aria-describedby="button-addon2"/>
+   <form onSubmit={handleSubmit} className="input-group mb-3">
+  <input type="text" className="form-control" placeholder="enter artist name" value={name} onChange={e => setName(e.target.value)}/>
   <div className="input-group-append">
-    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+    <button className="btn btn-outline-secondary" type="submit" id="button-addon2" >Search</button>
   </div>
-</div>
+</form>
     )
 }
 export default Search;

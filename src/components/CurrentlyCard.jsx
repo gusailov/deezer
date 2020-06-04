@@ -3,6 +3,7 @@ import React from "react";
 function DailyCards(props) {
   const { forecast, isLoaded } = props;
   const daily = forecast.data;
+  
 
   if (forecast.error) {
     return <div>Помилка: {forecast.error.message}</div>;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CurrentlyCard from "./CurrentlyCard";
 import Search from "./Search";
 // import Api from "./Api"
@@ -7,8 +7,13 @@ function App() {
   const [error, setError] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  const [name, setName] = useState('music')
 
-  const searchName = async (name) => {
+  const searchName = (name) => {
+    setName (name)
+  };
+
+    const search = async (name) => {
     const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${name}`;
     await fetch(url, {
       method: "GET",
@@ -29,7 +34,10 @@ function App() {
         }
       );
   };
-
+  useEffect(() => {
+    search(name)
+  }, [name])
+  
   return (
     <div className="container">
       <Search searchName={searchName}></Search>

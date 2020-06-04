@@ -6,6 +6,8 @@ const [name , setName] = useState('')
 const handleSubmit = (evt) => {
   evt.preventDefault();
    props.searchName(name)
+   
+   
    setName(" ");
    }
     return (

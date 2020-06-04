@@ -1,12 +1,13 @@
 import React from "react";
 
 function DailyCards(props) {
-  const { forecast, isLoaded } = props;
-  const daily = forecast.data;
-
-  if (forecast.error) {
-    return <div>Помилка: {forecast.error.message}</div>;
-  } else if (!isLoaded || forecast.length === 0) {
+  const { items, isLoaded } = props;
+  const daily = [items.data];
+console.log("Curently items-",daily);
+console.log("Curently isLoaded-",isLoaded);
+  if (items.error) {
+    return <div>Помилка: {items.error.message}</div>;
+  } else if (!daily || daily.length === 0) {
     return <div>Завантаження...</div>;
   } else {
     return (

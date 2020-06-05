@@ -4,7 +4,6 @@ function DailyCards(props) {
   const { forecast, isLoaded } = props;
   const daily = forecast.data;
   
-
   if (forecast.error) {
     return <div>Помилка: {forecast.error.message}</div>;
   } else if (!isLoaded || forecast.length === 0) {
